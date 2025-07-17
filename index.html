@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 - 极致体验</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">2048</h1>
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="score-label">分数</div>
+                    <div class="score" id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-label">最高分</div>
+                    <div class="score" id="best-score">0</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="game-intro">
+            <p class="game-explanation">
+                合并相同数字，达到 <strong>2048</strong> 方块！
+            </p>
+            <div class="controls">
+                <button class="restart-button" id="restart-button">重新开始</button>
+                <div class="how-to-play">
+                    <span>使用方向键或滑动操作</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="game-message" id="game-message">
+                <p></p>
+                <div class="lower">
+                    <button class="keep-playing-button" id="keep-playing-button">继续游戏</button>
+                    <button class="retry-button" id="retry-button">重试</button>
+                </div>
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            
+            <div class="tile-container" id="tile-container">
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>使用键盘方向键或触摸滑动来移动方块</p>
+            <div class="social-links">
+                <span>🎮 享受游戏乐趣！</span>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="particles" id="particles"></div>
+    
+    <script src="script.js?v=2"></script>
+</body>
+</html>
