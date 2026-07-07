@@ -1,0 +1,32 @@
+server {
+    listen 80;
+    server_name 2048.hnwen17.top;
+
+    root /www/wwwroot/2048.hnwen17.top;
+    index index.html;
+
+    access_log /www/wwwlogs/2048.hnwen17.top_access.log;
+    error_log  /www/wwwlogs/2048.hnwen17.top_error.log;
+
+    # 主入口：纯静态站点直接返回文件
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # 静态资源缓存与压缩（可选）
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/css text/javascript application/javascript application/json;
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico|webp)$ {
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # 隐藏文件保护
+    location ~ /\.|^/\.well-known/ { allow all; }
+    location ~ /\.(?!well-known).* { deny all; }
+}
+
+# 如需HTTPS，宝塔面板申请证书后会自动生成443配置，无需手动添加。
