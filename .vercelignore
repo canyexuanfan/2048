@@ -1,0 +1,9 @@
+.git
+.claude
+.vercel
+questions
+*.md
+server.py
+nginx_2048.conf.example
+__pycache__
+*.pyc
