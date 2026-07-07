@@ -1,50 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>2048 - 极致体验</title>
-    <link rel="stylesheet" href="style.css?v=2">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@400;600;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1 class="title">2048</h1>
+            <div class="topbar">
+                <div class="brand-lockup">
+                    <span class="eyebrow">Merge Lab</span>
+                    <h1 class="title">2048</h1>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换到深色模式" aria-pressed="false" title="切换深浅色风格">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </div>
+
             <div class="score-container">
                 <div class="score-box">
                     <div class="score-label">分数</div>
                     <div class="score" id="score">0</div>
                 </div>
-                <div class="score-box">
+                <div class="score-box score-best">
                     <div class="score-label">最高分</div>
                     <div class="score" id="best-score">0</div>
                 </div>
             </div>
         </header>
-        
-        <div class="game-intro">
+
+        <section class="game-intro" aria-label="游戏说明">
             <p class="game-explanation">
-                合并相同数字，达到 <strong>2048</strong> 方块！
+                合并相同数字，冲到 <strong>2048</strong> 方块。
             </p>
             <div class="controls">
-                <button class="restart-button" id="restart-button">重新开始</button>
-                <div class="how-to-play">
-                    <span>使用方向键或滑动操作</span>
-                </div>
+                <button class="restart-button" id="restart-button" type="button">重新开始</button>
+                <div class="how-to-play">方向键 / WASD / 触屏滑动均可操作</div>
             </div>
-        </div>
+        </section>
 
-        <div class="game-container">
-            <div class="game-message" id="game-message">
+        <main class="game-container" id="game-container" aria-label="2048 游戏棋盘">
+            <div class="game-message" id="game-message" role="dialog" aria-live="polite" aria-hidden="true">
                 <p></p>
                 <div class="lower">
-                    <button class="keep-playing-button" id="keep-playing-button">继续游戏</button>
-                    <button class="retry-button" id="retry-button">重试</button>
+                    <button class="keep-playing-button" id="keep-playing-button" type="button">继续游戏</button>
+                    <button class="retry-button" id="retry-button" type="button">重试</button>
                 </div>
             </div>
-            
-            <div class="grid-container">
+
+            <div class="grid-container" id="grid-container" aria-hidden="true">
                 <div class="grid-row">
                     <div class="grid-cell"></div>
                     <div class="grid-cell"></div>
@@ -70,21 +80,17 @@
                     <div class="grid-cell"></div>
                 </div>
             </div>
-            
-            <div class="tile-container" id="tile-container">
-            </div>
-        </div>
-        
+
+            <div class="tile-container" id="tile-container" aria-hidden="true"></div>
+        </main>
+
         <footer class="footer">
-            <p>使用键盘方向键或触摸滑动来移动方块</p>
-            <div class="social-links">
-                <span>🎮 享受游戏乐趣！</span>
-            </div>
+            <p>小提示：移动后没有空位或可合并方块时游戏结束。</p>
         </footer>
     </div>
-    
-    <div class="particles" id="particles"></div>
-    
-    <script src="script.js?v=2"></script>
+
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <script src="script.js?v=3"></script>
 </body>
 </html>
